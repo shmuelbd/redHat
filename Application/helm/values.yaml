@@ -2,8 +2,8 @@ ReplicaNumber: 3
 
 containers:
   containerPort: 8080
-  image: 'quay.io/shmuelbd/test:v2'
-  tag: 'base'
+  image: 'quay.io/shmuelbd/test'
+  tag: 'v2'
 
 service:
   servicePort: 8080
