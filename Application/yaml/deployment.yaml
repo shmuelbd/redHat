@@ -3,10 +3,10 @@ apiVersion: apps/v1
 metadata:
 # set your lab user name
   name: user20-hello-world
-  spec:
-    containers:
-      name: hello-world
-      image: 'quay.io/shmuelbd/test:v2'
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
 # set your lab user name
       app: user20-hello-world
   template:
@@ -24,7 +24,7 @@ metadata:
               protocol: TCP
           imagePullPolicy: IfNotPresent
 # Update with the image you build in part 1
-          image: 'quay.io/shmuelbd/test:v1'
+          image: 'quay.io/shmuelbd/test:v2'
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
