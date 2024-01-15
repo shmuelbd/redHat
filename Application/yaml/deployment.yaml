@@ -4,9 +4,9 @@ metadata:
 # set your lab user name
   name: user20-hello-world
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
+  containers:
+      name: hello-world
+      image: 'quay.io/shmuelbd/test:v2'
 # set your lab user name
       app: user20-hello-world
   template:
