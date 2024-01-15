@@ -5,8 +5,8 @@ metadata:
   name: user20-hello-world
 spec:
   containers:
-      name: hello-world
-      image: 'quay.io/shmuelbd/test:v2'
+    name: hello-world
+    image: 'quay.io/shmuelbd/test:v2'
 # set your lab user name
       app: user20-hello-world
   template:
