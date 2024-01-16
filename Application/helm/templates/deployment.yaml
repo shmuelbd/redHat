@@ -15,6 +15,11 @@ spec:
 # set your lab user name
         app: {{ .Chart.Name }}
     spec:
+      volumes:
+        - name: index-html
+          configMap:
+            name: '{{ .Chart.Name }}-html'
+            defaultMode: 420
       containers:
           volumeMounts:
           - name: index-html
@@ -26,11 +31,6 @@ spec:
             - containerPort: {{ .Values.containers.containerPort }}
               protocol: TCP
           imagePullPolicy: IfNotPresent
-      volumes:
-        - name: index-html
-          configMap:
-            name: '{{ .Chart.Name }}-html'
-            defaultMode: 420
 # Update with the image you build in part 1
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
       restartPolicy: Always
