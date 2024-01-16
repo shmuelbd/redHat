@@ -31,8 +31,8 @@ spec:
 # Update with the image you build in part 1
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
           volumeMounts:
-          - name: index-html
-            mountPath: /tmp/html
+            - name: index-html
+              mountPath: /tmp/html
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
