@@ -16,6 +16,9 @@ spec:
         app: {{ .Chart.Name }}
     spec:
       containers:
+          volumeMounts:
+          - name: index-html
+            mountPath: /tmp/html
         - resources: {}
           terminationMessagePath: /dev/termination-log
           name: {{ .Chart.Name }}
@@ -23,6 +26,11 @@ spec:
             - containerPort: {{ .Values.containers.containerPort }}
               protocol: TCP
           imagePullPolicy: IfNotPresent
+      volumes:
+        - name: index-html
+          configMap:
+            name: '{{ .Chart.Name }}-html'
+            defaultMode: 420
 # Update with the image you build in part 1
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
       restartPolicy: Always
